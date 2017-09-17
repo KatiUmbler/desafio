@@ -1,5 +1,11 @@
-var http = require('http');
-http.createServer(function(req,res) {
-  res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
-  res.end('<h2>Meu nome &eacute; Katiane Pereira Maciel.</h2><p>Minha comida favorita &eacute pizza.');
-}).listen(3000);
+var express = require('express');
+var app = express();
+
+app.get('/', function (req, res) {
+  res.send('<h2>Meu nome &eacute; Katiane Pereira Maciel.</h2><p>Minha comida favorita &eacute pizza.');
+});
+                                
+var port = process.env.PORT || 3000;
+app.listen(port, function () {
+    console.log('Umbler listening on port %s', port);
+});
